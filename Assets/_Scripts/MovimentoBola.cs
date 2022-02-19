@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovimentoBola : MonoBehaviour
 {
-   public float velocidade = 7;
+   public float velocidade;
    private Vector3 direcao;
    GameManager gm;
     // Start is called before the first frame update
@@ -14,15 +14,19 @@ public class MovimentoBola : MonoBehaviour
        float dirY = Random.Range(2.0f, 5.0f);
 
        direcao = new Vector3(dirX, dirY).normalized;
-
+       velocidade = 6;
        gm = GameManager.GetInstance();
     }
 
    // Update is called once per frame
    void Update()
    {
-       if (gm.level == 2) velocidade = 7;
-       else velocidade = 6;
+       if(Input.GetKeyDown(KeyCode.UpArrow) && gm.gameState == GameManager.GameState.GAME) 
+         velocidade++;
+
+        if(Input.GetKeyDown(KeyCode.DownArrow) && gm.gameState == GameManager.GameState.GAME && velocidade >=6) 
+         velocidade--;
+        
 
        if (gm.gameState != GameManager.GameState.GAME) return;
 
@@ -43,12 +47,17 @@ public class MovimentoBola : MonoBehaviour
            Reset();
        }
 
+       if (gm.levelchange){
+           Reset();
+           gm.levelchange = false;
+       }
        
         Debug.Log($"Vidas: {gm.vidas} \t | \t Pontos: {gm.pontos}");
     }
 
     private void Reset()
    {
+       velocidade = 6;
        Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
        transform.position = playerPosition + new Vector3(0, 0.5f, 0);
 
@@ -60,12 +69,6 @@ public class MovimentoBola : MonoBehaviour
 
        if(gm.vidas <= 0 && gm.gameState == GameManager.GameState.GAME)
         {
-
-        // highscore
-        if ( (PlayerPrefs.GetInt("HighScore",0)) < gm.pontos) 
-            PlayerPrefs.SetInt("HighScore", gm.pontos);
-
-
         gm.ChangeState(GameManager.GameState.ENDGAME);
         } 
    }

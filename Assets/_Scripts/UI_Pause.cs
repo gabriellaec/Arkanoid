@@ -21,6 +21,7 @@ public class UI_Pause : MonoBehaviour
   {
       gm.ChangeState(GameManager.GameState.MENU);
       gm.level=1;
+      gm.levelchange = true;
   }
 
 }

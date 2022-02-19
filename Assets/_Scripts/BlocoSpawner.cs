@@ -41,14 +41,9 @@ public class BlocoSpawner : MonoBehaviour
             for(int i = 0; i < 12; i++) {
                 for(int j = 0; j < 7; j++){
                     Vector3 posicao = new Vector3(-9 + 1.55f * i, 4 - 0.55f * j);
-                  //   Instantiate(Bloco, posicao, Quaternion.identity, transform);
-
-
                     GO = Instantiate (Bloco, posicao, Quaternion.identity, transform) as GameObject ;
-                    
                     var BlocoRenderer = GO.GetComponent<Renderer>();
                     if (j%3==0){     
-                      
                       BlocoRenderer.material.color = new Color(232 , 0 , 254, 1); //pink
                       GO.GetComponent<Bloco>().kill_hits = 3;
                     } else if (j%2==0){
@@ -85,27 +80,20 @@ public class BlocoSpawner : MonoBehaviour
       {
           if (gm.level == 1){
             gm.level += 1;
-            gm.pontos += 100;
+            gm.pontos *= 2;
             Construir();
+            gm.levelchange = true;
           }else if (gm.level == 2){
             gm.level += 1;
-            gm.pontos += 200;
+            gm.pontos *= 2;
             Construir();
+            gm.levelchange = true;
           }
           else {
             gm.ChangeState(GameManager.GameState.ENDGAME);
             gm.level = 1;
-          }
-          
+          }   
       }
-
-    //   else if (GO.hits==1) {
-    //         if (GO.kill_hits == 3) // pink
-    //         BlocoRenderer.material.color = new Color( 0 , 201 , 254, 1 );  //blue
-    //         if (GO.kill_hits == 2) // blue
-    //         BlocoRenderer.material.color = new Color(166, 254, 0 );  //green
-    //     }
-
   }
 
 }

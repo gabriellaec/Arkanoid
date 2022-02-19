@@ -23,9 +23,15 @@ public class UI_FimDeJogo : MonoBehaviour
            message.text = "Você Perdeu!!";
        }
 
-       score.text = $"Score: {gm.pontos}";
+       // highscore
+        if ( (PlayerPrefs.GetInt("HighScore",0)) < gm.pontos) 
+            PlayerPrefs.SetInt("HighScore", gm.pontos);
 
        recorde = PlayerPrefs.GetInt("HighScore",0);
+       if (recorde == gm.pontos) score.text = "New High Score!!";
+       else score.text = $"Score: {gm.pontos}";
+
+       
        highscore.text = $"HighScore: {recorde.ToString()}";
    }
 

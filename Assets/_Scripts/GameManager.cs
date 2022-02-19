@@ -12,6 +12,8 @@ public class GameManager
    public int level;
    private static GameManager _instance;
 
+   public bool levelchange = false;
+
 
    public static GameManager GetInstance()
    {

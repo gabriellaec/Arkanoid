@@ -12,6 +12,7 @@ public class GameManager
    public int level;
    private static GameManager _instance;
 
+
    public static GameManager GetInstance()
    {
        if(_instance == null)
@@ -34,12 +35,12 @@ public class GameManager
 
     private void Reset()
     {
-    vidas = 3000;
+    vidas = 15;
     pontos = 0;
     }
    private GameManager()
    {
-       vidas = 30;
+       vidas = 3;
        pontos = 0;
        gameState = GameState.MENU;
        level=1;

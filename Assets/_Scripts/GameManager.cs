@@ -9,6 +9,7 @@ public class GameManager
    public GameState gameState { get; private set; }
    public int vidas;
    public int pontos;
+   public int level;
    private static GameManager _instance;
 
    public static GameManager GetInstance()
@@ -26,20 +27,21 @@ public class GameManager
 
     public void ChangeState(GameState nextState)
     {
-    if (nextState == GameState.GAME && gameState == GameState.GAME) Reset();
+    if (nextState == GameState.GAME && (gameState != GameState.PAUSE )) Reset();
    gameState = nextState;
    changeStateDelegate();
     }
 
     private void Reset()
     {
-    vidas = 3;
+    vidas = 3000;
     pontos = 0;
     }
    private GameManager()
    {
-       vidas = 3;
+       vidas = 30;
        pontos = 0;
        gameState = GameState.MENU;
+       level=1;
    }
 }

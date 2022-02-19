@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovimentoRaquete : MonoBehaviour
 {
     [Range(1, 15)]
-    public float velocidade = 5.0f;
+    public float velocidade = 7.0f;
 
     GameManager gm;
 

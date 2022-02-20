@@ -54,7 +54,6 @@ public class MovimentoBola : MonoBehaviour
 
        if (gm.levelchange){
            Reset();
-           gm.levelchange = false;
        }
        
         Debug.Log($"Vidas: {gm.vidas} \t | \t Pontos: {gm.pontos}");
@@ -75,7 +74,12 @@ public class MovimentoBola : MonoBehaviour
        float dirY = Random.Range(2.0f, 5.0f);
 
        direcao = new Vector3(dirX, dirY).normalized;
-       gm.vidas--;
+
+       if (!(gm.levelchange)){
+           gm.vidas--;
+       }
+       gm.levelchange = false;
+       
 
        if( gm.gameState == GameManager.GameState.GAME && gm.vidas <= 0)
         {

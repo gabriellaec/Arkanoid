@@ -26,6 +26,11 @@ public class MovimentoBola : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.DownArrow) && gm.gameState == GameManager.GameState.GAME && velocidade >=6) 
          velocidade--;
+
+        gm.superbola = false;
+        gm.superUltraBola = false;
+        if (velocidade >= 10) gm.superUltraBola = true;
+        else if (velocidade >= 8) gm.superbola = true;
         
 
        if (gm.gameState != GameManager.GameState.GAME) return;
@@ -89,7 +94,10 @@ public class MovimentoBola : MonoBehaviour
        else if (collision.gameObject.CompareTag("Tijolo"))
        {
            direcao = new Vector3(direcao.x, -direcao.y);
-           gm.pontos++;
+
+           if (gm.superUltraBola) gm.pontos+=10;
+           else if (gm.superbola) gm.pontos+=4;
+           else gm.pontos ++;
         }
    }
 

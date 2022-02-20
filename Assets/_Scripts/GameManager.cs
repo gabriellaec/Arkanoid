@@ -13,7 +13,9 @@ public class GameManager
    private static GameManager _instance;
 
     public float timeRemainig;
-    // public bool timerRunning;
+    
+    public bool superbola = false;
+    public bool superUltraBola = false;
 
    public bool levelchange = false;
 

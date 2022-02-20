@@ -12,7 +12,11 @@ public class GameManager
    public int level;
    private static GameManager _instance;
 
+    public float timeRemainig;
+    // public bool timerRunning;
+
    public bool levelchange = false;
+
 
 
    public static GameManager GetInstance()
@@ -37,14 +41,16 @@ public class GameManager
 
     private void Reset()
     {
-    vidas = 15;
+    vidas = 5;
     pontos = 0;
+    timeRemainig = 420;
     }
    private GameManager()
    {
-       vidas = 3;
+       vidas = 5;
        pontos = 0;
        gameState = GameState.MENU;
        level=1;
+       timeRemainig = 420;
    }
 }

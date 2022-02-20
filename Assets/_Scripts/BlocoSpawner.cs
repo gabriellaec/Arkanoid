@@ -13,13 +13,11 @@ public class BlocoSpawner : MonoBehaviour
   {
       gm = GameManager.GetInstance();
       GameManager.changeStateDelegate += Construir;
-      Construir();
+      Construir();  
   }
 
-  void Construir()
-  {
-     
-
+  void Construir() {
+    
        if (gm.gameState == GameManager.GameState.GAME) {
           foreach (Transform child in transform) {
               GameObject.Destroy(child.gameObject);

@@ -53,6 +53,11 @@ public class MovimentoBola : MonoBehaviour
        }
        
         Debug.Log($"Vidas: {gm.vidas} \t | \t Pontos: {gm.pontos}");
+
+        if( gm.gameState == GameManager.GameState.GAME && gm.timeRemainig <= 0)
+        {
+        gm.ChangeState(GameManager.GameState.ENDGAME);
+        } 
     }
 
     private void Reset()
@@ -67,7 +72,7 @@ public class MovimentoBola : MonoBehaviour
        direcao = new Vector3(dirX, dirY).normalized;
        gm.vidas--;
 
-       if(gm.vidas <= 0 && gm.gameState == GameManager.GameState.GAME)
+       if( gm.gameState == GameManager.GameState.GAME && gm.vidas <= 0)
         {
         gm.ChangeState(GameManager.GameState.ENDGAME);
         } 

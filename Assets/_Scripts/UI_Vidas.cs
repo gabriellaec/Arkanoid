@@ -16,5 +16,9 @@ public class UI_Vidas : MonoBehaviour
    void Update()
    {
        textComp.text = $"Vidas: {gm.vidas}";
+
+       if( gm.gameState == GameManager.GameState.MENU) textComp.GetComponent<Text>().color = Color.black;
+       else textComp.GetComponent<Text>().color = Color.white;
+       
    }
 }

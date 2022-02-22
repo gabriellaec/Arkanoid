@@ -16,5 +16,9 @@ public class UI_Pontos : MonoBehaviour
    void Update()
    {
        textComp.text = $"Pontos: {gm.pontos}";
+
+    if( gm.gameState == GameManager.GameState.MENU) textComp.GetComponent<Text>().color = Color.black;
+    else textComp.GetComponent<Text>().color = Color.white;
+       
    }
 }

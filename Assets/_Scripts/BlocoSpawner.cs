@@ -14,17 +14,22 @@ public class BlocoSpawner : MonoBehaviour
       gm = GameManager.GetInstance();
       GameManager.changeStateDelegate += Construir;
       Construir();  
+      Debug.Log("start");
   }
 
   void Construir() {
-    
-       if (gm.gameState == GameManager.GameState.GAME) {
+       Debug.Log("Construir");
+       Debug.Log($"waspaused{gm.waspaused}");
+
+       
+       if (gm.gameState == GameManager.GameState.GAME && !(gm.waspaused)) {
+
           foreach (Transform child in transform) {
               GameObject.Destroy(child.gameObject);
           }
 
           if (gm.level == 1){
-            for(int i = 0; i < 12; i++) {
+            for(int i = 2; i < 11; i++) {
                 for(int j = 0; j < 3; j++){
                     Vector3 posicao = new Vector3(-9 + 1.55f * i, 4 - 0.55f * j);
                     GO = Instantiate (Bloco, posicao, Quaternion.identity, transform) as GameObject ;
@@ -36,7 +41,7 @@ public class BlocoSpawner : MonoBehaviour
                 }
             }
           }else if (gm.level ==2){
-            for(int i = 0; i < 12; i++) {
+            for(int i = 2; i < 11; i++) {
                 for(int j = 0; j < 7; j++){
                     Vector3 posicao = new Vector3(-9 + 1.55f * i, 4 - 0.55f * j);
                     GO = Instantiate (Bloco, posicao, Quaternion.identity, transform) as GameObject ;
@@ -54,7 +59,7 @@ public class BlocoSpawner : MonoBehaviour
                 }
             }
           }else {
-            for(int i = 0; i < 12; i++) {
+            for(int i = 2; i < 11; i++) {
                 for(int j = 0; j < 9; j++){
                     Vector3 posicao = new Vector3(-9 + 1.55f * i, 4 - 0.55f * j);
                     GO = Instantiate (Bloco, posicao, Quaternion.identity, transform) as GameObject ;
@@ -70,12 +75,14 @@ public class BlocoSpawner : MonoBehaviour
             }
           }
       }
+      gm.waspaused=false;
   }
 
   void Update()
   {
       if (transform.childCount <= 0 && gm.gameState == GameManager.GameState.GAME)
       {
+         Debug.Log("update");
           if (gm.level == 1){
             gm.level += 1;
             gm.pontos *= 2;
@@ -90,6 +97,7 @@ public class BlocoSpawner : MonoBehaviour
           else {
             gm.ChangeState(GameManager.GameState.ENDGAME);
             gm.level = 1;
+            gm.levelchange = true;
           }   
       }
   }

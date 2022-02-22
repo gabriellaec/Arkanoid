@@ -17,6 +17,9 @@ public class GameManager
     public bool superbola = false;
     public bool superUltraBola = false;
 
+    public bool waspaused = false;
+
+
    public bool levelchange = false;
 
 
@@ -37,8 +40,12 @@ public class GameManager
     public void ChangeState(GameState nextState)
     {
     if (nextState == GameState.GAME && (gameState != GameState.PAUSE )) Reset();
-   gameState = nextState;
-   changeStateDelegate();
+
+    else if (nextState == GameState.GAME && (gameState == GameState.PAUSE )) 
+        waspaused = true;
+
+    gameState = nextState;
+    changeStateDelegate();
     }
 
     private void Reset()

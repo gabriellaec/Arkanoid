@@ -56,7 +56,7 @@ public class MovimentoBola : MonoBehaviour
            Reset();
        }
        
-        Debug.Log($"Vidas: {gm.vidas} \t | \t Pontos: {gm.pontos}");
+        // Debug.Log($"Vidas: {gm.vidas} \t | \t Pontos: {gm.pontos}");
 
         if( gm.gameState == GameManager.GameState.GAME && gm.timeRemainig <= 0)
         {
@@ -104,5 +104,8 @@ public class MovimentoBola : MonoBehaviour
            else gm.pontos ++;
         }
    }
+
+
+  
 
 }

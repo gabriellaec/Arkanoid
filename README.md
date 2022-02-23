@@ -46,6 +46,12 @@ Mas vale muito a pena tentar ganhar o jogo o mais rápido possível! Cada segund
 Seu recorde de pontos fica salvo para você possa tentar melhorar ele cada vez mais!!
 
 
+![image](https://user-images.githubusercontent.com/49689481/155245926-251f0d36-a1c7-4c86-8b82-f90b3cfd2f49.png)
+
+
+Vídeo funcionando (com mais vidas para mostrar todos os níveis): https://drive.google.com/file/d/1pApeDke6QlP98nrve7FL8WX_Y0nxFWsH/view?usp=sharing
+
+
 ### Referências
 Música: https://freesound.org/people/DaveJf/sounds/620176/
 

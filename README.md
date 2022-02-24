@@ -49,7 +49,7 @@ Seu recorde de pontos fica salvo para você possa tentar melhorar ele cada vez m
 ![image](https://user-images.githubusercontent.com/49689481/155588205-c57365af-06e6-45ea-aca5-11dc568f7334.png)
 
 
-Vídeo funcionando (com mais vidas para mostrar todos os níveis): https://drive.google.com/file/d/1pApeDke6QlP98nrve7FL8WX_Y0nxFWsH/view?usp=sharing
+Vídeo mostrando um pouco do funcionamento: https://drive.google.com/file/d/18Hbd-ZgRwOYK9wz0i9oOrOkuEgvvLf_7/view?usp=sharing
 
 
 ### Referências

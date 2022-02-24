@@ -27,6 +27,8 @@ public class MovimentoBola : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.DownArrow) && gm.gameState == GameManager.GameState.GAME && velocidade >=6) 
          velocidade--;
 
+        gm.speed = (int)velocidade;
+
         gm.superbola = false;
         gm.superUltraBola = false;
         if (velocidade >= 10) gm.superUltraBola = true;

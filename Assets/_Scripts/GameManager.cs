@@ -10,6 +10,7 @@ public class GameManager
    public int vidas;
    public int pontos;
    public int level;
+   public int speed;
    private static GameManager _instance;
 
     public float timeRemainig;
